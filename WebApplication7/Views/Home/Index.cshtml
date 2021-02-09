@@ -1,0 +1,23 @@
+﻿@model WebApplication7.Models.MainModel
+
+
+@using (Html.BeginForm("Save", "Home", FormMethod.Post) )
+{
+@Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.DisplayNameFor(m => m.NickName)
+            @Html.EditorFor(model => model.NickName, new { htmlAttributes = new { @class = "form-control" } })
+            <span asp-validation-for="NickName)" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            @Html.DisplayNameFor(m => m.Email)
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <button type="submit" id="btnSave" value="Save">Save</button>
+    </div>
+}
